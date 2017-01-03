@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cau 4</title>
+	<style type="text/css">
+		.row {
+			display: block;
+		}
+		table {
+			border: 1px solid blue;
+		}
+		table tr td {
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="row">
+			<select>
+				<option>Email</option>
+			</select>
+			<input type="email" id="email" name="email">
+			<label>Comments</label>
+			<input type="text" id="comment" name="comment">
+			<button>Add Row</button>
+		</div>
+		<div class="row">
+			<table>
+				
+			</table>
+		</div>
+	</div>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$("button").click(function(){
+			var table = $("table");
+			var row = $("<tr></tr>");
+			var col1 = $("<td></td>").text($("#email").val());
+			var col2 = $("<td></td>").text($("#comment").val());
+			row.append(col1,col2);
+			table.append(row);
+		});
+	</script>
+</body>
+</html>

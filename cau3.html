@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cau 3</title>
+	<style type="text/css">
+		form {
+			margin: 0 auto;
+			width: 500px;
+			background-color: pink;
+		}
+		.form-control {
+			display: block;	
+			width: 100%;
+		}
+		.myclass {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<div class="form-group">
+			<label for="number">Some number</label>
+			<input id="number" class="form-control" type="text" name="number">
+			<p></p>
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$("button").click(function(e){
+			e.preventDefault();
+			var num = $("#number").val();
+			if(  ! num || isNaN( num ) ) {
+				$("p").text("A number is required.");
+				$(".form-group").css("color", "red");
+				$(".form-control").css("border-color", "red");
+				return;
+			}
+			if( num % 10 != 0 ) {
+				$("p").text("The number should be divisible by 10.");
+				$(".form-group").css("color", "red");
+				$(".form-control").css("border-color", "red");
+				return;
+			}
+			if( num < 1000000 ) {
+				$("p").text("The number should be at least 7 digit.");
+				$(".form-group").css("color", "red");
+				$(".form-control").css("border-color", "red");
+				return;
+			}
+			$("p").text("");
+			$(".form-group").css("color", "inherit");
+			$(".form-control").css("border-color", "black");
+		});
+	</script>
+</body>
+</html>
